@@ -109,7 +109,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
             csn.append(csr_matrix(temp))
     return csn
     
-    def upperlower_dev(gene1, gene2, boxsize = 0.1, md = 1, iteration = False, cell_id = None):
+def upperlower_dev(gene1, gene2, boxsize = 0.1, md = 1, iteration = False, cell_id = None):
     if len(gene1) != len(gene2):
         return
     n1 = 2
@@ -154,7 +154,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
                 lower[1, k] = gene2[k] - d2
     return (upper, lower)
     
-    def upperlower(data, boxsize = 0.1):
+def upperlower(data, boxsize = 0.1):
     (n1, n2) = data.shape # n1 gene; n2 cells
     upper = np.zeros((n1, n2))
     lower = np.zeros((n1, n2))
@@ -184,58 +184,8 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
             k = k + s + 1
     return (upper, lower)     
     
-    def create_D_mat(csn_mat, ncore = 4):
-    if type(csn_mat) is list:
-        T = len(csn_mat)
-    else:
-        T = csn_mat.shape[2]
-    D_mat = np.zeros((T, T))
-    s_mtx = np.ones((T, T)) - np.tri(T)
-    (I, J, S) = find(s_mtx)
-    L = len(I)
-    if type(csn_mat) is list:
-        def inner_fun(m):
-            i = I[m]
-            j = J[m]
-            a = sum(abs(csn_mat[i]-csn_mat[j])).max()
-            return a
-        A = np.asarray(Parallel(n_jobs = ncore)(delayed(inner_fun)(m) for m in range(0, L)))
-        D_mat[I, J] = A
-        D_mat[J, I] = A
-    else:
-        def inner_fun(m):
-            i = I[m]
-            j = J[m]
-            a = max(sum(abs(csn_mat[:, :, i] - csn_mat[:, :, j])))
-            return a
-        A = np.asarray(Parallel(n_jobs = ncore)(delayed(inner_fun)(m) for m in range(0, L)))
-        D_mat[I, J] = A
-        D_mat[J, I] = A
-    return D_mat
     
-    def distance_test(D_mat, change, num_perm = 1000):
-    stat_rec = np.zeros(num_perm)
-    n = D_mat.shape[0]
-    Z = np.zeros((n, 2))
-    Z[0:change, 0] = 1
-    Z[change:, 1] = -1
-    
-    counts = sum(abs(Z))
-    counts = np.reshape(counts, (1, 2))
-    count_mat = counts.T@counts
-    for i in range(0, num_perm):
-        if i == 0:
-            ind = np.asarray(list(range(0, n)))
-        else:
-            ind = np.random.permutation(n)
-        Dp = D_mat[ind, :][:, ind]
-        test_stat = Z.T@Dp@Z / (count_mat + pow(10, -6))
-        stat_rec[i] = sum(sum(test_stat))
-    
-    pval = 1 - (stat_rec > stat_rec[0] + pow(10, -6)).mean()
-    return pval
-    
-    def upperlower_soft(data_full, soft_c, wd_q = 0.1):
+def upperlower_soft(data_full, soft_c, wd_q = 0.1):
     (n2, K) = soft_c.shape
     (n1, n2) = data_full.shape
     F_c = soft_c/sum(soft_c)
@@ -271,7 +221,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
             print('soft cluster', cl+1, 'gene', i , 'is done!')
     return(upper, lower)
                 
-    def csn_soft_dev(data_full, soft_c, upper = None, lower = None, wd_q = 0.1, md = 1, iteration = False, maxiter = 10000):
+def csn_soft_dev(data_full, soft_c, upper = None, lower = None, wd_q = 0.1, md = 1, iteration = False, maxiter = 10000):
     if upper is None or lower is None:
         (upper, lower) = upperlower_soft(data_full, soft_c, wd_q)
     K = soft_c.shape[1]
@@ -322,7 +272,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
         
     return csn
     
-    def csn_comb_cluster(csn, soft_c):
+def csn_comb_cluster(csn, soft_c):
     (n2, K) = soft_c.shape
     scale = np.sqrt(soft_c[:, 1]**2 + soft_c[:, 0]**2)
     n1 = csn[0].shape[0]
@@ -332,7 +282,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
             csn_comb[:, :, i] = (csn_comb[:, :, i] + csn[k][:, :, i]*soft_c[i, k])/scale[i]
     return csn_comb
     
-    def csn_rec(data1, data2, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = False, fuzzy = False, ncore = 4):
+def csn_rec(data1, data2, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = False, fuzzy = False, ncore = 4):
     (G1, N) = data1.shape
     G2 = data2.shape[0]
     eps = np.finfo(float).eps
@@ -437,7 +387,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
         return
     return csn
     
-    def csn_block(data, M = 100, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = False, fuzzy = False, ncore = 4):
+def csn_block(data, M = 100, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = False, fuzzy = False, ncore = 4):
     (G, K) = data.shape
     n = math.ceil(G/M)
     group_n = np.zeros(G)
@@ -474,7 +424,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
     csn_mtx = [idtosparse(item, G, G) for item in csn_mtx_id]
     return csn_mtx
     
-    def csn_loc(data_full, knn_index, wd_q = 0.1, dev = True, md = 1, iteration = False, ncore = 4):
+def csn_loc(data_full, knn_index, wd_q = 0.1, dev = True, md = 1, iteration = False, ncore = 4):
     (n1, n2) = data_full.shape
     (nk, nc) = knn_index.shape
     eps = np.finfo(float).eps
@@ -529,7 +479,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
     #    csn_mat[:, :, k] = csn_mat_list[k]
     return csn_mat_list # csn_mat
     
-    def csn_rec_loc(data1, data2, knn_index, wd_q = 0.1, dev = True, md = 1, iteration = False, ncore = 4):
+def csn_rec_loc(data1, data2, knn_index, wd_q = 0.1, dev = True, md = 1, iteration = False, ncore = 4):
     (G1, N) = data1.shape
     G2 = data2.shape[0]
     (nk, nc) = knn_index.shape
@@ -585,7 +535,7 @@ def csn(data_full, g_mtx = None, wd_q = 0.1, dev = True, md = 1, iteration = Fal
     #    csn_mat[:, :, k] = csn_mat_list[k]
     return csn_mat_list # csn_mat
     
-    def csn_block_loc(data, knn_index, M = 100, wd_q = 0.1, dev = True, md = 1, iteration = False, ncore = 4):
+def csn_block_loc(data, knn_index, M = 100, wd_q = 0.1, dev = True, md = 1, iteration = False, ncore = 4):
     (G, K) = data.shape
     n = math.ceil(G/M)
     group_n = np.zeros(G)
