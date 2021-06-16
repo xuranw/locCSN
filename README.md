@@ -130,25 +130,6 @@ The heatmaps for DEC and NPC are
 
 ![avgcsn](./Figures/Avg_csn_2ct.png)
 
-
-#### Calculate CSN with parallel
-This time we take Velmeshev et al. dataset for analysis. We are going to focus on Neuron layer cells. 
-```{python, eval = FALSE}
-# Dataset from Velmeshev et al. We select 100 nearest metacells for analysis
-mc_temp = pd.read_csv('mc_cpm_L.txt', sep = ' ')  # Expression
-gene_name = mc_temp.index.values
-mc_temp = mc_temp.values
-log_mc = np.log(mc_temp+1)
-
-meta_mc = pd.read_csv('meta_mc_L.txt', sep = ' ')  # metadata
-
-log_temp = log_mc[:, meta_mc.cluster == 'L4']              # We focus on L4 cell group
-diag_temp = meta_mc.diagnosis[meta_mc.cluster == 'L4']
-
-knn_index = pd.read_csv('mcknn100_L4.txt', sep = ' ')     # Index of metacells that are included for locCSN construction
-knn_index = knn_index.values
-
-csn_loc_mat = csn_loc(log_temp[0:10, :], knn_index)   # Demo for small subset of genes 
-csn_loc_mat = csn_block_loc(log_temp, knn_index, M = 50)     # Use parallel computation for more genes 
-```
-
+## References
+* Dai, Hao, et al. "Cell-specific network constructed by single-cell RNA sequencing data." Nucleic acids research 47.11 (2019).
+* Chu, Li-Fang, et al. "Single-cell RNA-seq reveals novel regulators of human embryonic stem cell differentiation to definitive endoderm." Genome biology 17.1 (2016).
