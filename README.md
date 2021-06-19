@@ -69,11 +69,11 @@ The heatmaps for absolute Pearson`s correlations is
 Now we calculate the CSN test statistics using function `csn` for cell type DEC and NPC. 
 ```{python, eval = FALSE}
 start = time.time()
-csn_dec = csn(X_dec, dev = True)
+csn_dec = locCSN.csn(X_dec, dev = True)
 end = time.time()
 print(end - start) 
 start = time.time()
-csn_npc = csn(X_npc, dev = True)
+csn_npc = locCSN.csn(X_npc, dev = True)
 end = time.time()
 print(end - start) 
 #1275 pairs need calculation
