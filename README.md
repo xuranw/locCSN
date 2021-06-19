@@ -10,28 +10,15 @@ This work has not published yet, please see [bioRxiv](https://www.biorxiv.org/co
 
 Get Started
 -----------------
-All locCSN python functions are stored in [Python Folder](https://github.com/xuranw/locCSN/tree/main/Python) and datasets are stored in [DataStore](https://github.com/xuranw/locCSN/tree/main/DataStore). Please download datasets and load functions.
-
-
-#### Import Functions
-We first load functions that are required for locCSN.
+First install `locCSN` pacakge. All locCSN python functions are also stored in [Python Folder](https://github.com/xuranw/locCSN/tree/main/Python). 
 ```{python, eval = FALSE}
-import os
-import scanpy as sc
-import pandas as pd
-import numpy as np
-import math
-
-from scipy.sparse import csr_matrix, find
-import matplotlib.pyplot as plt
-import time
-from scipy.stats import norm
-
-from joblib import Parallel, delayed
+pip install locCSN
 ```
+Please download datasets stored in [DataStore](https://github.com/xuranw/locCSN/tree/main/DataStore). 
+
 
 #### Load Datasets
-In this example, we rerun the Chutype dataset in paper. There are 51 marker genes and 1018 cells from 7 cell types. The gene expression are stored in [logChumaker.txt](https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/logChumarker.txt) and corresponding cell types in [chutypectname.txt](https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/chutypectname.txt). Cell types are H1, H9, DEC, EC, HFF, NPC and TF. In our paper, we focus on cell type DEC and NPC.
+In this example, we reproduce the Chutype dataset in paper. There are 51 marker genes and 1018 cells from 7 cell types. The gene expression are stored in [logChumaker.txt](https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/logChumarker.txt) and corresponding cell types in [chutypectname.txt](https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/chutypectname.txt). Cell types are H1, H9, DEC, EC, HFF, NPC and TF. In our paper, we focus on cell type DEC and NPC.
 ```{python, eval = FALSE}
 # Set path to data
 os.chdir('yourpathtodata/')
