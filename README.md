@@ -157,7 +157,7 @@ The heatmaps for DEC and NPC are
 For comparison between two groups of cells using CSNs, we use the dataset from ASD Brain dataset (Velmeshev et al. 2019). We focus on 942 expressed SFARI ASD genes and compare gene co-expression networks of control and ASD group using Pearson's correlation and CSN. The comparison methods are sLED and DISTp.
 
 ### Data Summary
-The ASD Brain dataset has 104,559 cells of 16 cell types and is very sparse. We use Metacell(Baran et al. 2019) to reduce the sparsity for the dataset. Please see [metacell website](https://tanaylab.github.io/metacell/) for how to generate metacells. The following analysis is based on metacells, which are stored in this [folder](https://github.com/xuranw/locCSN/tree/main/DataStore/Velme). 
+The ASD Brain dataset has 104,559 cells of 16 cell types and is very sparse. We use Metacell(Baran et al. 2019) to reduce the sparsity for the dataset. Please see [Metacell website](https://tanaylab.github.io/metacell/) for how to generate metacells. The following analysis is based on metacells, which are stored in this [folder](https://github.com/xuranw/locCSN/tree/main/DataStore/Velme). 
 
 For demonstration, we start with metacell expression of 4 Neuron layer cell types: L2/3, L4, L5/6 and L5/6-CC and 942 SFARI genes. The metacell expressions are stored in this [folder](https://github.com/xuranw/locCSN/tree/main/DataStore/Velme). Please download them in your own directory.
 
@@ -286,7 +286,7 @@ print(end-start)
 pval
 # 0.252
 ```
-The DISTp pvalue for this toy example is 0.252, which is not significant. Looking at the heatmap of 
+The DISTp pvalue for this toy example is 0.252, which is not significant. The heatmaps of the toy example with 20 genes also show similar gene connection strengths for Control and ASD groups. 
 
 
 The code for all 942 genes are provided below. <span style="color:red"> **Please do not run when you go through the demo.** </span> It will take a long time to finish. 
@@ -383,11 +383,12 @@ result.csn = sLED.csn(X = csn.t.flat[, meta.mc.diag == 0], Y = csn.t.flat[, meta
 result.csn$pVal
 # [1] 0
 ```
-sLED-CSN have significant p-value for comparison ASD and Control groups for L4 cell group. 
-
+sLED-CSN produces a significant p-value for comparison of ASD and Control groups for L4 cell group.
 
 #### leverage genes and DN genes
-We can also identify a small cluster of leverage genes corresponding to the non-zero entries of the sparse leading eigenvector. The differential network genes are the ones that explain 90\% of the variability among the leverage genes.leverage genes are the non-zero entries of the sparse leading eigenvector. We can get leverage genes and DN genes with code below.
+
+We can also identify the leverage genes, which are the non-zero entries of the sparse leading eigenvector. The differential network genes are the ones that explain 90\% of the variability among the leverage genes. To get leverage genes and DN genes use the code below.
+
 ```R
 # Leverage genes 
 lev.L4 = asd.genes[result.csn$leverage > 0]
@@ -483,7 +484,7 @@ param.frac_min_flow_size = 0.15;
 [newZ] = layout_timeline(A_rec, Z', param);
 
 ```
-This section is not necessary. We are manually reordered the gene community so that the dense gene community is the first gene community.
+This section is not necessary. We manually reordered the gene community so that the dense gene community is the first gene community.
 
 ```matlab
 % Manually change gene community order
