@@ -1,0 +1,2967 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>locCSN: Local Cell-Specific Network (locCSN)</title>
+  
+  <meta property="description" itemprop="description" content="Tutorial of construction local cell specific networks from single cell data"/>
+  
+  
+  <meta name="article:author" content="Xuran Wang"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="locCSN: Local Cell-Specific Network (locCSN)"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Tutorial of construction local cell specific networks from single cell data"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="locCSN"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="locCSN: Local Cell-Specific Network (locCSN)"/>
+  <meta property="twitter:description" content="Tutorial of construction local cell specific networks from single cell data"/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Local Cell-Specific Network (locCSN)"]},{"type":"character","attributes":{},"value":["Tutorial of construction local cell specific networks from single cell data\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Xuran Wang"]},{"type":"character","attributes":{},"value":["https://xuranw.github.io/personalwebsite/"]},{"type":"character","attributes":{},"value":["Carnegie Mellon University, Department of Statistics and Data Science"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","toc_float","highlight"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["pygments"]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+  
+  <script type="application/javascript">
+  
+    window.headroom_prevent_pin = false;
+  
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+  
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+  
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+  
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+  
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+  
+  <style type="text/css">
+  
+  /* Theme (user-documented overrideables for nav appearance) */
+  
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .distill-site-nav a:hover {
+    color: white;
+  }
+  
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+  
+  .distill-site-header {
+  
+  }
+  
+  .distill-site-footer {
+  
+  }
+  
+  
+  /* Site Header */
+  
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+  
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+  
+  
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+  
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+  
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+  
+  .distill-site-header .logo {
+    padding: 0;
+  }
+  
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+  
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+  
+  
+  
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+  
+  
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+  
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+  
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-dropdown-active {
+    display: block;
+  }
+  
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+  
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+  
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+  
+  /* Site Footer */
+  
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Headroom */
+  
+  d-title {
+    padding-top: 6rem;
+  }
+  
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+  
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+  
+  .headroom--unpinned {
+    top: -100px;
+  }
+  
+  .headroom--pinned {
+    top: 0;
+  }
+  
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+  
+  </style>
+  
+  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+  
+  <script type="application/javascript">
+  
+  function getMeta(metaName) {
+    var metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+      if (metas[i].getAttribute('name') === metaName) {
+        return metas[i].getAttribute('content');
+      }
+    }
+    return '';
+  }
+  
+  function offsetURL(url) {
+    var offset = getMeta('distill:offset');
+    return offset ? offset + '/' + url : url;
+  }
+  
+  function createFuseIndex() {
+  
+    // create fuse index
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
+    var fuse = new window.Fuse([], options);
+  
+    // fetch the main search.json
+    return fetch(offsetURL('search.json'))
+      .then(function(response) {
+        if (response.status == 200) {
+          return response.json().then(function(json) {
+            // index main articles
+            json.articles.forEach(function(article) {
+              fuse.add(article);
+            });
+            // download collections and index their articles
+            return Promise.all(json.collections.map(function(collection) {
+              return fetch(offsetURL(collection)).then(function(response) {
+                if (response.status === 200) {
+                  return response.json().then(function(articles) {
+                    articles.forEach(function(article) {
+                      fuse.add(article);
+                    });
+                  })
+                } else {
+                  return Promise.reject(
+                    new Error('Unexpected status from search index request: ' +
+                              response.status)
+                  );
+                }
+              });
+            })).then(function() {
+              return fuse;
+            });
+          });
+  
+        } else {
+          return Promise.reject(
+            new Error('Unexpected status from search index request: ' +
+                        response.status)
+          );
+        }
+      });
+  }
+  
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+  
+    // get search element (bail if we don't have one)
+    var searchEl = window.document.getElementById('distill-search');
+    if (!searchEl)
+      return;
+  
+    createFuseIndex()
+      .then(function(fuse) {
+  
+        // make search box visible
+        searchEl.classList.remove('hidden');
+  
+        // initialize autocomplete
+        var options = {
+          autoselect: true,
+          hint: false,
+          minLength: 2,
+        };
+        window.autocomplete(searchEl, options, [{
+          source: function(query, callback) {
+            const searchOptions = {
+              isCaseSensitive: false,
+              shouldSort: true,
+              minMatchCharLength: 2,
+              limit: 10,
+            };
+            var results = fuse.search(query, searchOptions);
+            callback(results
+              .map(function(result) { return result.item; })
+            );
+          },
+          templates: {
+            suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
+              var html = `
+                <div class="search-item">
+                  <h3>${suggestion.title}</h3>
+                  <div class="search-item-description">
+                    ${suggestion.description || ''}
+                  </div>
+                  <div class="search-item-preview">
+                    ${img}
+                  </div>
+                </div>
+              `;
+              return html;
+            }
+          }
+        }]).on('autocomplete:selected', function(event, suggestion) {
+          window.location.href = offsetURL(suggestion.path);
+        });
+        // remove inline display style on autocompleter (we want to
+        // manage responsive display via css)
+        $('.algolia-autocomplete').css("display", "");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  
+  });
+  
+  </script>
+  
+  <style type="text/css">
+  
+  .nav-search {
+    font-size: x-small;
+  }
+  
+  /* Algolioa Autocomplete */
+  
+  .algolia-autocomplete {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: sub;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-radius: 6px;
+    border: 1px #0F2E3D solid;
+    width: 180px;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .distill-site-nav .algolia-autocomplete {
+      display: none;
+      visibility: hidden;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete {
+      display: inline-block;
+      visibility: visible;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+      margin-left: 0;
+      width: 400px;
+      max-height: 400px;
+    }
+  }
+  
+  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+  
+  .algolia-autocomplete .aa-hint {
+    color: #999;
+  }
+  .algolia-autocomplete .aa-dropdown-menu {
+    width: 550px;
+    max-height: 70vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 3px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-top: none;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+    overflow: hidden;
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 5px;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8em;
+    width: 80%;
+    margin-right: 4%;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+    display: inline-block;
+    width: 15%;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+    height: 3em;
+    width: auto;
+    display: none;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+    display: initial;
+  }
+  
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #eee;
+  }
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  </style>
+  
+  
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+  
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+  
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+  
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+  
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+  
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+  
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+  
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+  
+  /* Tweak code blocks */
+  
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+  
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+  
+  d-article div.sourceCode {
+    background-color: white;
+  }
+  
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  d-article pre a {
+    border-bottom: none;
+  }
+  
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+  
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+  
+  @media(min-width: 768px) {
+  
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+  
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+  
+  d-article pre {
+    font-size: 14px;
+  }
+  
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for d-contents */
+  
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+  
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+  
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+  
+  .d-contents li {
+    list-style-type: none
+  }
+  
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+  
+  .d-contents ul {
+    padding-left: 1em
+  }
+  
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+  
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+  
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+  
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+  
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+  
+  
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+  
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+  
+  
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  /* Citations */
+  
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+  
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+  
+  /* Citation hover box */
+  
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+  
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+  
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* Include appendix styles here so they can be overridden */
+  
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+  
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+  
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+  
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+  
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+  
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+  
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  d-appendix > * {
+    grid-column: text;
+  }
+  
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+  
+  /* Include footnote styles here so they can be overridden */
+  
+  d-footnote-list {
+    contain: layout style;
+  }
+  
+  d-footnote-list > * {
+    grid-column: text;
+  }
+  
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+  
+  
+  
+  /* Anchor.js */
+  
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+  
+  /* Styles for posts lists (not auto-injected) */
+  
+  
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+  
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+  
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+  
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+  
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+  
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+  
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+  
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+  
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+  
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+  
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+  
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+  
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .posts-list img {
+    opacity: 1;
+  }
+  
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+  
+  .posts-more {
+    clear: both;
+  }
+  
+  
+  .posts-sidebar {
+    font-size: 16px;
+  }
+  
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+  
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+  
+  .categories li>a {
+    border-bottom: none;
+  }
+  
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+  
+  .categories .active {
+    font-weight: 600;
+  }
+  
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+  
+  
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+  
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+  
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-contents').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <style type="text/css">
+  /* base variables */
+  
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+  
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+  
+  
+  
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    sans-serif;
+    --mono-font:       monospace;
+    --body-font:       sans-serif;
+    --navbar-font:     sans-serif;  /* websites + blogs only */
+  }
+  
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+  
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+  
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+  
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+  
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+  
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+  
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  </style>
+  <style type="text/css">/* base variables */
+  
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+  
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+  @import url('https://fonts.googleapis.com/css2?family=Amiri');
+  @import url('https://fonts.googleapis.com/css2?family=Bitter');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat');
+  
+  
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      36px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    --background-color: #F6FFFB
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    "Amiri", serif;
+    --mono-font:       "DM Mono", monospace;
+    --body-font:       "Bitter", sans-serif;
+    --navbar-font:     "Montserrat", serif;
+  }
+  
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+  
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+  
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+  
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+  
+  .distill-site-header {
+    --title-size:       18px;    
+    --text-color:       #FFFFFF; /* edited */
+    --text-size:        18px;
+    --hover-color:      #FFFFFF; /* edited */
+    --bkgd-color:       #81b69d; /* edited */
+  }
+  
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+  
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  
+  /* The sidebar menu */
+  .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #0a3a2a;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #137a63;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }</style>
+  <style type="text/css">
+  /* base style */
+  
+  /* FONT FAMILIES */
+  
+  :root {
+    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  body,
+  .posts-list .post-preview p,
+  .posts-list .description p {
+    font-family: var(--body-font), var(--body-default);
+  }
+  
+  h1, h2, h3, h4, h5, h6,
+  .posts-list .post-preview h2,
+  .posts-list .description h2 {
+    font-family: var(--heading-font), var(--heading-default);
+  }
+  
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: var(--mono-font), var(--mono-default);
+  }
+  
+  
+  /*-- TITLE --*/
+  d-title h1,
+  .posts-list > h1 {
+    color: var(--title-color, black);
+  }
+  
+  d-title h1 {
+    font-size: var(--title-size, 50px);
+  }
+  
+  /*-- HEADERS --*/
+  d-article h1,
+  d-article h2,
+  d-article h3,
+  d-article h4,
+  d-article h5,
+  d-article h6 {
+    color: var(--header-color, rgba(0, 0, 0, 0.8));
+  }
+  
+  /*-- BODY --*/
+  d-article > p,  /* only text inside of <p> tags */
+  d-article > ul, /* lists */
+  d-article > ol {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+    font-size: var(--body-size, 1.06rem);
+  }
+  
+  
+  /*-- CODE --*/
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-size: var(--code-size, 14px);
+  }
+  
+  /*-- ASIDE --*/
+  d-article aside {
+    font-size: var(--aside-size, 12px);
+    color: var(--aside-color, rgba(0, 0, 0, 0.6));
+  }
+  
+  /*-- FIGURE CAPTIONS --*/
+  figure .caption,
+  figure figcaption,
+  .figure .caption {
+    font-size: var(--fig-cap-size, 13px);
+    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+  }
+  
+  /*-- METADATA --*/
+  d-byline h3 {
+    font-size: var(--heading-size, 0.6rem);
+    color: var(--heading-color, rgba(0, 0, 0, 0.5));
+  }
+  
+  d-byline {
+    font-size: var(--body-size, 0.8rem);
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+  
+  d-byline a,
+  d-article d-byline a {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+  
+  /*-- TABLE OF CONTENTS --*/
+  .d-contents nav h3 {
+    font-size: var(--heading-size, 18px);
+  }
+  
+  .d-contents nav a {
+    font-size: var(--contents-size, 13px);
+  }
+  
+  /*-- APPENDIX --*/
+  d-appendix h3 {
+    font-size: var(--heading-size, 15px);
+    color: var(--heading-color, rgba(0, 0, 0, 0.65));
+  }
+  
+  d-appendix {
+    font-size: var(--text-size, 0.8em);
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+  
+  d-appendix d-footnote-list a.footnote-backlink {
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+  
+  /*-- WEBSITE HEADER + FOOTER --*/
+  .distill-site-header .title {
+    font-size: var(--title-size, 18px);
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+  
+  .distill-site-header a,
+  .nav-dropdown .nav-dropbtn {
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+  
+  .nav-dropdown .nav-dropbtn {
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    font-size: var(--text-size, 15px);
+  }
+  
+  .distill-site-header a:hover,
+  .nav-dropdown:hover .nav-dropbtn {
+    color: var(--hover-color, white);
+  }
+  
+  .distill-site-header {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+  
+  .distill-site-footer {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+  
+  .distill-site-footer a:hover {
+    color: var(--hover-color, white);
+  }</style>
+  <!--/radix_placeholder_distill-->
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Local Cell-Specific Network (locCSN)","description":"Tutorial of construction local cell specific networks from single cell data","authors":[{"author":"Xuran Wang","authorURL":"https://xuranw.github.io/personalwebsite/","affiliation":"Carnegie Mellon University, Department of Statistics and Data Science","affiliationURL":"#","orcidID":""}]}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="index.html" class="title">locCSN</a>
+<a href="index.html">Home</a>
+<a href="vignettes.html">Tutorial</a>
+</div>
+<div class="nav-right">
+<a href="https://github.com/xuranw/locCSN">
+<i class="fa fa-github" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Local Cell-Specific Network (locCSN)</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Tutorial of construction local cell specific networks from single cell data</p></p>
+</div>
+
+<div class="d-byline">
+  Xuran Wang <a href="https://xuranw.github.io/personalwebsite/" class="uri">https://xuranw.github.io/personalwebsite/</a> (Carnegie Mellon University, Department of Statistics and Data Science)
+  
+
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#how-to-cite-loccsn">How to cite <code>locCSN</code></a></li>
+<li><a href="#get-started">Get Started</a><ul>
+<li><a href="#dataset-summary">Dataset Summary</a></li>
+</ul></li>
+<li><a href="#simple-example-of-loccsn-using-chutype-dataset">Simple Example of locCSN using Chutype Dataset</a><ul>
+<li><a href="#load-datasets">Load Datasets</a></li>
+<li><a href="#calculate-pearsons-correlation">Calculate Pearson’s Correlation</a></li>
+<li><a href="#calculate-csn-test-statistics">Calculate CSN test statistics</a></li>
+</ul></li>
+<li><a href="#comparing-networks-between-two-groups-of-cells">Comparing networks between two groups of cells</a><ul>
+<li><a href="#data-summary">Data Summary</a></li>
+<li><a href="#csn-construction-of-l4-cell-group">CSN Construction of L4 cell-group</a></li>
+<li><a href="#comparison-of-asd-and-control-groups">Comparison of ASD and Control groups</a></li>
+</ul></li>
+<li><a href="#trajectory-analysis-using-brain-cortex-atlas-dataset">Trajectory analysis using Brain Cortex Atlas Dataset</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</nav>
+</div>
+<p><code>locCSN</code> is a package that calculates gene networks for each cell from single-cell datasets. <img src="Figures/Workflow_new.png" alt="pipeline" /></p>
+<h1 id="how-to-cite-loccsn">How to cite <code>locCSN</code></h1>
+<p>This work has not published yet, please see <a href="https://www.biorxiv.org/content/10.1101/2021.02.13.431104v1">bioRxiv</a>.</p>
+<h1 id="get-started">Get Started</h1>
+<p>First install <code>locCSN</code> pacakge. All locCSN python functions are also stored in <a href="https://github.com/xuranw/locCSN/tree/main/Python">Python Folder</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">pip install locCSN</a></code></pre></div>
+<p>Please download datasets stored in <a href="https://github.com/xuranw/locCSN/tree/main/DataStore">DataStore</a>. Large datasets can be accessed by this <a href="https://www.dropbox.com/sh/yhwaubuo44zs344/AAA9Di_NdwbOcD1K5oDC5pwFa?dl=0">link</a>.</p>
+<h2 id="dataset-summary">Dataset Summary</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Chutype</th>
+<th>ASD Brain</th>
+<th>Brain Cortex Atlas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reference</td>
+<td>Chu et al.(2016)</td>
+<td>Velmeshev et al.(2019)</td>
+<td>Polioudakis et al.(2019)</td>
+</tr>
+<tr class="even">
+<td># of cell</td>
+<td>1018</td>
+<td>104,559</td>
+<td>35,543</td>
+</tr>
+<tr class="odd">
+<td>genes for analysis</td>
+<td>51</td>
+<td>942</td>
+<td>444</td>
+</tr>
+<tr class="even">
+<td>Data Availability</td>
+<td>GSE75748</td>
+<td>PRJNA434002</td>
+<td><a href="http://solo.bmap.ucla.edu/shiny/webapp">website</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="simple-example-of-loccsn-using-chutype-dataset">Simple Example of locCSN using Chutype Dataset</h1>
+<p>In this example, we reproduce the results of Chutype dataset in paper.</p>
+<h2 id="load-datasets">Load Datasets</h2>
+<p>There are 51 marker genes and 1018 cells from 7 cell types. The gene expression are stored in <a href="https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/logChumarker.txt">logChumaker.txt</a> and corresponding cell types in <a href="https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/chutypectname.txt">chutypectname.txt</a>. Cell types are H1, H9, DEC, EC, HFF, NPC and TF. In our paper, we focus on cell type DEC and NPC.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># Import packages</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="im">import</span> locCSN</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="im">import</span> scanpy <span class="im">as</span> sc</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co"># Set path to data</span></a>
+<a class="sourceLine" id="cb2-11" title="11">os.chdir(<span class="st">&#39;yourpathtodata/Chutype/&#39;</span>)</a>
+<a class="sourceLine" id="cb2-12" title="12"></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="co"># read in Chutype dataset</span></a>
+<a class="sourceLine" id="cb2-14" title="14">data <span class="op">=</span> sc.read_text(<span class="st">&#39;logChumarker.txt&#39;</span>)</a>
+<a class="sourceLine" id="cb2-15" title="15">data.shape</a>
+<a class="sourceLine" id="cb2-16" title="16">data <span class="op">=</span> data.transpose() <span class="co"># 1018 cells * 51 genes</span></a>
+<a class="sourceLine" id="cb2-17" title="17"></a>
+<a class="sourceLine" id="cb2-18" title="18">cell_type <span class="op">=</span> pd.read_csv(<span class="st">&#39;chutypectname.txt&#39;</span>, sep <span class="op">=</span> <span class="st">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb2-19" title="19">data.obs <span class="op">=</span> cell_type   <span class="co"># The observation are labeled with cell types.</span></a>
+<a class="sourceLine" id="cb2-20" title="20"></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="co"># Plot the Heatmap of gene expression</span></a>
+<a class="sourceLine" id="cb2-22" title="22">sc.pl.heatmap(data, data.var.index, groupby<span class="op">=</span> <span class="st">&quot;cell_type&quot;</span>, dendrogram <span class="op">=</span> <span class="va">False</span>, swap_axes <span class="op">=</span> <span class="va">True</span>, </a>
+<a class="sourceLine" id="cb2-23" title="23">              show_gene_labels<span class="op">=</span> <span class="va">True</span>, cmap<span class="op">=</span><span class="st">&#39;Wistia&#39;</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</a></code></pre></div>
+<figure>
+<img src="Figures/heatmapheat_exprs.png" alt="heatmap" /><figcaption>heatmap</figcaption>
+</figure>
+<h2 id="calculate-pearsons-correlation">Calculate Pearson’s Correlation</h2>
+<p>After loading gene expression matrix and cell types, we first show the absolute Pearson’s correlation for DEC and NPC cells.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">data_dec <span class="op">=</span> data[data.obs.cell_type <span class="op">==</span> <span class="st">&quot;DEC&quot;</span>, ]</a>
+<a class="sourceLine" id="cb3-2" title="2">X_dec <span class="op">=</span> data_dec.X.transpose()</a>
+<a class="sourceLine" id="cb3-3" title="3">data_npc <span class="op">=</span> data[data.obs.cell_type <span class="op">==</span> <span class="st">&#39;NPC&#39;</span>, ]</a>
+<a class="sourceLine" id="cb3-4" title="4">X_npc <span class="op">=</span> data_npc.X.transpose()</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">corr_dec <span class="op">=</span> np.corrcoef(X_dec)</a>
+<a class="sourceLine" id="cb3-7" title="7">corr_npc <span class="op">=</span> np.corrcoef(X_npc)</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10">np.fill_diagonal(corr_dec, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11">np.fill_diagonal(corr_npc, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-12" title="12"></a>
+<a class="sourceLine" id="cb3-13" title="13"></a>
+<a class="sourceLine" id="cb3-14" title="14">plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb3-15" title="15">plt.imshow(<span class="bu">abs</span>(corr_dec), vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.7</span>, cmap<span class="op">=</span><span class="st">&#39;RdPu&#39;</span>)</a>
+<a class="sourceLine" id="cb3-16" title="16">plt.title(<span class="st">&#39;DEC&#39;</span>, fontweight <span class="op">=</span><span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb3-17" title="17">plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-18" title="18">plt.imshow(<span class="bu">abs</span>(corr_npc), vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.7</span>, cmap<span class="op">=</span><span class="st">&#39;RdPu&#39;</span>)</a>
+<a class="sourceLine" id="cb3-19" title="19">plt.title(<span class="st">&quot;NPC&quot;</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb3-20" title="20">plt.suptitle(<span class="st">&quot;Absolute Pearson`s Correlation&quot;</span>, fontsize <span class="op">=</span> <span class="dv">14</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a></code></pre></div>
+<p>The heatmaps for absolute Pearson`s correlations is</p>
+<figure>
+<img src="Figures/Abs_cor_2ct.png" alt="abs_corr" /><figcaption>abs_corr</figcaption>
+</figure>
+<h2 id="calculate-csn-test-statistics">Calculate CSN test statistics</h2>
+<p>Now we calculate the CSN test statistics using function <code>csn</code> for cell type DEC and NPC.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="im">import</span> time</a>
+<a class="sourceLine" id="cb4-2" title="2">start <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb4-3" title="3">csn_dec <span class="op">=</span> locCSN.csn(X_dec, dev <span class="op">=</span> <span class="va">True</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4">end <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="bu">print</span>(end <span class="op">-</span> start) </a>
+<a class="sourceLine" id="cb4-6" title="6">start <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb4-7" title="7">csn_npc <span class="op">=</span> locCSN.csn(X_npc, dev <span class="op">=</span> <span class="va">True</span>)</a>
+<a class="sourceLine" id="cb4-8" title="8">end <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="bu">print</span>(end <span class="op">-</span> start) </a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#1275 pairs need calculation</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">#60.3697772026062</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">#903 pairs need calculation</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="co">#35.72847938537598</span></a></code></pre></div>
+<p>Now we show what function <code>csn</code> produces. For a specific cell, we compute each pair of genes and store test statistics in an upper diagnol matrix.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="bu">type</span>(csn_dec) </a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co"># list</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="bu">len</span>(csn_dec) <span class="co"># 138 cells</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co"># Let&#39;s see the test statistics for the first cell in DEC</span></a>
+<a class="sourceLine" id="cb5-5" title="5">plt.imshow(csn_dec[<span class="dv">0</span>].toarray(), vmin <span class="op">=</span> <span class="dv">-6</span>, vmax <span class="op">=</span> <span class="dv">6</span>, cmap <span class="op">=</span> <span class="st">&#39;coolwarm&#39;</span>)</a>
+<a class="sourceLine" id="cb5-6" title="6">plt.title(<span class="st">&#39;DEC one cell&#39;</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb5-7" title="7">plt.colorbar()</a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">#plt.savefig(&#39;dec_one_cell.png&#39;)</span></a></code></pre></div>
+<figure>
+<img src="Figures/dec_one_cell.png" alt="one_cell" /><figcaption>one_cell</figcaption>
+</figure>
+<p>As we stated in <a href="https://www.biorxiv.org/content/10.1101/2021.02.13.431104v2#page">our paper</a>: ‘’Althogh individual CSNs are estimated with considerable noise, average CSNs provide stable estimates of network structure, which provide better estimates of gene block structure.’’ For CSN test statistics matrices within a cell group, we first threshold test statistics and averaged the adjacency matrices with the cell group. The averaged CSN is the estimate of gene co-expression of the cell group. In this example, we thresholded at <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="im">from</span> scipy.stats <span class="im">import</span> norm</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co"># Cutoff at norm(0.95)</span></a>
+<a class="sourceLine" id="cb6-4" title="4">csn_mat <span class="op">=</span> [(item <span class="op">&gt;</span> norm.ppf(<span class="fl">0.95</span>)).astype(<span class="bu">int</span>) <span class="cf">for</span> item <span class="kw">in</span> csn_dec]</a>
+<a class="sourceLine" id="cb6-5" title="5">avgcsn_dec <span class="op">=</span> <span class="bu">sum</span>(csn_mat).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat) <span class="op">+</span> np.transpose(<span class="bu">sum</span>(csn_mat).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat))</a>
+<a class="sourceLine" id="cb6-6" title="6">csn_mat <span class="op">=</span> [(item <span class="op">&gt;</span> norm.ppf(<span class="fl">0.95</span>)).astype(<span class="bu">int</span>) <span class="cf">for</span> item <span class="kw">in</span> csn_npc]</a>
+<a class="sourceLine" id="cb6-7" title="7">avgcsn_npc <span class="op">=</span> <span class="bu">sum</span>(csn_mat).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat) <span class="op">+</span> np.transpose(<span class="bu">sum</span>(csn_mat).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat))</a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9">plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-10" title="10">plt.imshow(avgcsn_dec, cmap <span class="op">=</span> <span class="st">&quot;Greens&quot;</span>, vmin <span class="op">=</span> <span class="dv">0</span>, vmax <span class="op">=</span> <span class="fl">0.7</span>)</a>
+<a class="sourceLine" id="cb6-11" title="11">plt.title(<span class="st">&#39;DEC&#39;</span>, fontweight <span class="op">=</span><span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb6-12" title="12">plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb6-13" title="13">plt.imshow(avgcsn_npc, cmap <span class="op">=</span> <span class="st">&quot;Greens&quot;</span>, vmin <span class="op">=</span> <span class="dv">0</span>, vmax <span class="op">=</span> <span class="fl">0.7</span>)</a>
+<a class="sourceLine" id="cb6-14" title="14">plt.title(<span class="st">&#39;NPC&#39;</span>, fontweight <span class="op">=</span> <span class="st">&#39;bold&#39;</span>)</a>
+<a class="sourceLine" id="cb6-15" title="15">plt.suptitle(<span class="st">&quot;Averaged CSN, cut at alpha = 0.05&quot;</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a></code></pre></div>
+<p>The heatmaps for DEC and NPC are</p>
+<figure>
+<img src="Figures/Avg_csn_2ct.png" alt="avgcsn" /><figcaption>avgcsn</figcaption>
+</figure>
+<h1 id="comparing-networks-between-two-groups-of-cells">Comparing networks between two groups of cells</h1>
+<p>For comparison between two groups of cells using CSNs, we use the dataset from ASD Brain dataset (Velmeshev et al. 2019). We focus on 942 expressed SFARI ASD genes and compare gene co-expression networks of control and ASD group using Pearson’s correlation and CSN. The comparison methods are sLED and DISTp.</p>
+<h2 id="data-summary">Data Summary</h2>
+<p>The ASD Brain dataset has 104,559 cells of 16 cell types and is very sparse. We use Metacell(Baran et al. 2019) to reduce the sparsity for the dataset. Please see <a href="https://tanaylab.github.io/metacell/">Metacell website</a> for how to generate metacells. The following analysis is based on metacells, which are stored in this <a href="https://github.com/xuranw/locCSN/tree/main/DataStore/Velme">folder</a>.</p>
+<p>For demonstration, we start with metacell expression of 4 Neuron layer cell types: L2/3, L4, L5/6 and L5/6-CC and 942 SFARI genes. The metacell expressions are stored in this <a href="https://github.com/xuranw/locCSN/tree/main/DataStore/Velme">folder</a>. Please download them in your own directory.</p>
+<p>Let’s take a look at the expression of neuron layers. There are 1778 metacells and 942 genes.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># import scanpy as sc</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co"># load data</span></a>
+<a class="sourceLine" id="cb7-3" title="3">os.chdir(<span class="st">&#39;yourpathtodata/Velme/&#39;</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4">data <span class="op">=</span> sc.read_text(<span class="st">&#39;Velme_log_mc_cpm_L.txt&#39;</span>)</a>
+<a class="sourceLine" id="cb7-5" title="5">data <span class="op">=</span> data.transpose() </a>
+<a class="sourceLine" id="cb7-6" title="6">data.shape <span class="co"># 1778 metacells * 942 genes</span></a>
+<a class="sourceLine" id="cb7-7" title="7">meta_L <span class="op">=</span> pd.read_csv(<span class="st">&#39;Velme_meta_mc_L.txt&#39;</span>, sep <span class="op">=</span> <span class="st">&#39; &#39;</span>) </a>
+<a class="sourceLine" id="cb7-8" title="8">meta_L.columns</a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co"># Index([&#39;sampleID&#39;, &#39;broad.cluster&#39;, &#39;cluster&#39;, &#39;diagnosis&#39;], dtype=&#39;object&#39;)</span></a>
+<a class="sourceLine" id="cb7-10" title="10">data.obs <span class="op">=</span> meta_L</a>
+<a class="sourceLine" id="cb7-11" title="11">sc.pl.heatmap(data, data.var.index, groupby<span class="op">=</span> [<span class="st">&quot;cluster&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>], dendrogram <span class="op">=</span> <span class="va">False</span>, swap_axes <span class="op">=</span> <span class="va">True</span>, cmap<span class="op">=</span><span class="st">&#39;Wistia&#39;</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</a></code></pre></div>
+<figure>
+<img src="Figures/heatmap_velme_L.png" alt="velme_heatmap" /><figcaption>velme_heatmap</figcaption>
+</figure>
+<p>The metadata of metacells can be accessed in <code>data.obs</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1">data.obs[<span class="st">&#39;cluster&#39;</span>].value_counts()</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co">#L2/3       772</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">#L4         449</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">#L5/6-CC    341</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">#L5/6       216</span></a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7">data.obs[<span class="st">&#39;diagnosis&#39;</span>].value_counts()</a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="co">#ASD        936</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">#Control    842</span></a>
+<a class="sourceLine" id="cb8-10" title="10"></a>
+<a class="sourceLine" id="cb8-11" title="11">grouped_data <span class="op">=</span> data.obs.groupby([<span class="st">&#39;cluster&#39;</span>, <span class="st">&#39;diagnosis&#39;</span>])</a>
+<a class="sourceLine" id="cb8-12" title="12">grouped_data.describe()[<span class="st">&#39;sampleID&#39;</span>][<span class="st">&#39;count&#39;</span>]</a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="co">#cluster  diagnosis</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="co">#L2/3     ASD          414.0</span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="co">#         Control      358.0</span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="co">#L4       ASD          238.0</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="co">#         Control      211.0</span></a>
+<a class="sourceLine" id="cb8-18" title="18"><span class="co">#L5/6     ASD          107.0</span></a>
+<a class="sourceLine" id="cb8-19" title="19"><span class="co">#         Control      109.0</span></a>
+<a class="sourceLine" id="cb8-20" title="20"><span class="co">#L5/6-CC  ASD          177.0</span></a>
+<a class="sourceLine" id="cb8-21" title="21"><span class="co">#         Control      164.0</span></a></code></pre></div>
+<h2 id="csn-construction-of-l4-cell-group">CSN Construction of L4 cell-group</h2>
+<p>CSN test statistics are calcaulted within cell group. Now we focus on one cell-group: L4, which contains 449 metacells (238 ASD + 211 Control). Let’s first subset the neuron layers to L4 cell group.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1">ct_name <span class="op">=</span> <span class="st">&quot;L4&quot;</span></a>
+<a class="sourceLine" id="cb9-2" title="2">data_L4 <span class="op">=</span> data[data.obs.cluster <span class="op">==</span> ct_name, :]</a>
+<a class="sourceLine" id="cb9-3" title="3">data_L4.shape <span class="co"># 449 metacell * 942 genes</span></a>
+<a class="sourceLine" id="cb9-4" title="4">mcknn <span class="op">=</span> pd.read_csv(<span class="st">&#39;mcknn100_&#39;</span> <span class="op">+</span> ct_name <span class="op">+</span> <span class="st">&#39;.txt&#39;</span>, sep <span class="op">=</span> <span class="st">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb9-5" title="5">mcknn <span class="op">=</span> mcknn.to_numpy()</a>
+<a class="sourceLine" id="cb9-6" title="6">X_L4 <span class="op">=</span> data_L4.X.transpose()</a></code></pre></div>
+<p>The runtime of 942 genes is longer than 1 hour. Therefore we provide a toy example only use a subset of 20 genes and the runtime is approximately 20-40s.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">start <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb10-2" title="2">csn_L4_sub <span class="op">=</span> locCSN.csn_loc(X_L4[<span class="dv">0</span>:<span class="dv">20</span>, :], mcknn)</a>
+<a class="sourceLine" id="cb10-3" title="3">end <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="bu">print</span>(end_start)</a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="co"># 25.824307203292847</span></a></code></pre></div>
+<p>For storage and export to different software platforms, we flatten the CSN test statistics matrices. For each CSN matrix, we vectorize it to a vector, then column-bind the vectors by cells. The final csn flatten matrix is a gene pair * cell matrix. The flattened matrix for <span class="math inline">\(G\)</span> genes and <span class="math inline">\(N\)</span> cells is of size <span class="math inline">\(G(G-1)/2 \times N\)</span>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1">csn_L4_sub_flat <span class="op">=</span> locCSN.csntoflat(csn_L4_sub)  <span class="co"># 20 genes</span></a>
+<a class="sourceLine" id="cb11-2" title="2">csn_L4_sub_flat.shape  <span class="co">#190 gene pairs * 449 cells</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="co"># np.savetxt(&#39;csn_&#39;+ct_name+&#39;_sub_flat.txt&#39;, csn_L4_sub_flat, delimiter = &#39;\t&#39;)</span></a></code></pre></div>
+<p>For analysis and visualization, we threshold the CSN test statistics at <span class="math inline">\(\alpha = 0.01\)</span> and average CSN within ASD and Control group respectively.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1">csn_mat <span class="op">=</span> [(item <span class="op">&gt;</span> norm.ppf(<span class="fl">0.99</span>)).astype(<span class="bu">int</span>) <span class="cf">for</span> item <span class="kw">in</span> csn_L4_sub]</a>
+<a class="sourceLine" id="cb12-2" title="2">meta_L4 <span class="op">=</span> meta_L[meta_L[<span class="st">&#39;cluster&#39;</span>] <span class="op">==</span> ct_name]</a>
+<a class="sourceLine" id="cb12-3" title="3"></a>
+<a class="sourceLine" id="cb12-4" title="4">c_index <span class="op">=</span> (meta_L4[<span class="st">&#39;diagnosis&#39;</span>].to_numpy() <span class="op">==</span> <span class="st">&#39;Control&#39;</span>).tolist()</a>
+<a class="sourceLine" id="cb12-5" title="5">csn_mat_L4_control <span class="op">=</span>  [x <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(csn_mat_L4, c_index) <span class="cf">if</span> y]</a>
+<a class="sourceLine" id="cb12-6" title="6">a_index <span class="op">=</span> (meta_L4[<span class="st">&#39;diagnosis&#39;</span>].to_numpy() <span class="op">==</span> <span class="st">&#39;ASD&#39;</span>).tolist()</a>
+<a class="sourceLine" id="cb12-7" title="7">csn_mat_L4_asd <span class="op">=</span>  [x <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(csn_mat_L4, a_index) <span class="cf">if</span> y]</a>
+<a class="sourceLine" id="cb12-8" title="8"></a>
+<a class="sourceLine" id="cb12-9" title="9">avgcsn_L4_sub_control <span class="op">=</span> <span class="bu">sum</span>(csn_mat_L4_control).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat_L4_control)</a>
+<a class="sourceLine" id="cb12-10" title="10">avgcsn_L4_sub_control <span class="op">=</span> <span class="op">+</span> np.transpose(avgcsn_L4_sub_control)</a>
+<a class="sourceLine" id="cb12-11" title="11">avgcsn_L4_sub_asd <span class="op">=</span> <span class="bu">sum</span>(csn_mat_L4_asd).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat_L4_asd)</a>
+<a class="sourceLine" id="cb12-12" title="12">avgcsn_L4_sub_asd <span class="op">=</span> <span class="op">+</span> np.transpose(avgcsn_L4_sub_asd)</a>
+<a class="sourceLine" id="cb12-13" title="13"></a>
+<a class="sourceLine" id="cb12-14" title="14">my_dpi <span class="op">=</span> <span class="dv">50</span></a>
+<a class="sourceLine" id="cb12-15" title="15">fig, axes <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>), dpi<span class="op">=</span>my_dpi)</a>
+<a class="sourceLine" id="cb12-16" title="16"><span class="bu">print</span>(fig)</a>
+<a class="sourceLine" id="cb12-17" title="17"><span class="bu">print</span>(axes)</a>
+<a class="sourceLine" id="cb12-18" title="18">fig.suptitle(<span class="st">&quot;Avg CSN for L4, 20 genes, cut at alpha = 0.01&quot;</span>, fontsize <span class="op">=</span> <span class="dv">14</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb12-19" title="19">axes[<span class="dv">0</span>].set_title(<span class="st">&#39;Control&#39;</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb12-20" title="20">axes[<span class="dv">0</span>].imshow(avgcsn_L4_sub_control, cmap <span class="op">=</span> <span class="st">&quot;Greens&quot;</span>, vmin <span class="op">=</span> <span class="dv">0</span>, vmax <span class="op">=</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb12-21" title="21">axes[<span class="dv">1</span>].set_title(<span class="st">&#39;ASD&#39;</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb12-22" title="22">axes[<span class="dv">1</span>].imshow(avgcsn_L4_sub_asd, cmap <span class="op">=</span> <span class="st">&quot;Greens&quot;</span>, vmin <span class="op">=</span> <span class="dv">0</span>, vmax <span class="op">=</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb12-23" title="23"><span class="co">#fig.savefig(&#39;Velme_Avg_csn_L4_sub.png&#39;)</span></a></code></pre></div>
+<figure>
+<img src="Figures/Velme_Avg_csn_L4_sub.png" alt="velme_toy_heat" /><figcaption>velme_toy_heat</figcaption>
+</figure>
+<p>For visualization in different software platform, we store averaged CSN for ASD and Control group in text file.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="co"># save averaged CSN file control + ASD</span></a>
+<a class="sourceLine" id="cb13-2" title="2">avgcsn_flat_L4_sub <span class="op">=</span> csntoflat([avgcsn_L4_sub_control, avgcsn_L4_sub_asd])</a>
+<a class="sourceLine" id="cb13-3" title="3">np.savetxt(<span class="st">&#39;avgcsn_asd_data_&#39;</span><span class="op">+</span>ct_name<span class="op">+</span><span class="st">&#39;_sub.txt&#39;</span>, avgcsn_flat_L4_sub, delimiter<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</a></code></pre></div>
+<h2 id="comparison-of-asd-and-control-groups">Comparison of ASD and Control groups</h2>
+<p>In this section, we demonstrate how we compare the gene co-expression using DISTp and sLED. ### DISTp We also inplement the test of DISTp in <code>locCSN</code> package. DISTp requires CSN adjacency matrices that are arranged by cell group.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># Arrange adjacency matrices by cell group</span></a>
+<a class="sourceLine" id="cb14-2" title="2">csn_mat_L4_new <span class="op">=</span> csn_mat_L4_control <span class="op">+</span> csn_mat_L4_asd</a>
+<a class="sourceLine" id="cb14-3" title="3">n_control <span class="op">=</span> <span class="bu">len</span>(csn_mat_L4_control)  <span class="co"># number of the first group</span></a>
+<a class="sourceLine" id="cb14-4" title="4"></a>
+<a class="sourceLine" id="cb14-5" title="5">start <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb14-6" title="6">pval <span class="op">=</span> locCSN.DISTp(csn_mat_L4_new, n_control)</a>
+<a class="sourceLine" id="cb14-7" title="7">end <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="bu">print</span>(end<span class="op">-</span>start)</a>
+<a class="sourceLine" id="cb14-9" title="9"><span class="co"># 33.536951303482056</span></a>
+<a class="sourceLine" id="cb14-10" title="10"></a>
+<a class="sourceLine" id="cb14-11" title="11">pval</a>
+<a class="sourceLine" id="cb14-12" title="12"><span class="co"># 0.252</span></a></code></pre></div>
+<p>The DISTp pvalue for this toy example is 0.252, which is not significant. The heatmaps of the toy example with 20 genes also show similar gene connection strengths for Control and ASD groups.</p>
+<p>The code for all 942 genes are provided below. <span style="color:red"> <strong>Please do not run when you go through the demo.</strong> </span> It will take a long time to finish.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1"><span class="co"># code for 942 genes of L4. Do not run!!! It will take too long for demo</span></a>
+<a class="sourceLine" id="cb15-2" title="2">csn_L4 <span class="op">=</span> locCSN.csn_block_loc(X_L4, mcknn)</a>
+<a class="sourceLine" id="cb15-3" title="3">csn_L4_flat <span class="op">=</span> locCSN.csntoflat(csn_L4)</a>
+<a class="sourceLine" id="cb15-4" title="4"></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="co"># save the flatten the CSN test statistics for sLED. This is a extremely big file</span></a>
+<a class="sourceLine" id="cb15-6" title="6">np.savetxt(<span class="st">&#39;csn_asd_loc_flat_&#39;</span>,ct_name, <span class="st">&#39;.txt&#39;</span>, csn_L4_flat, delimiter<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb15-7" title="7"></a>
+<a class="sourceLine" id="cb15-8" title="8">csn_mat_L4 <span class="op">=</span> [(item <span class="op">&gt;</span> norm.ppf(<span class="fl">0.99</span>)).astype(<span class="bu">int</span>) <span class="cf">for</span> item <span class="kw">in</span> csn_L4]</a>
+<a class="sourceLine" id="cb15-9" title="9">meta_L4 <span class="op">=</span> meta_L[meta_L[<span class="st">&#39;cluster&#39;</span>] <span class="op">==</span> ct_name]</a>
+<a class="sourceLine" id="cb15-10" title="10">c_index <span class="op">=</span> (meta_L4[<span class="st">&#39;diagnosis&#39;</span>].to_numpy() <span class="op">==</span> <span class="st">&#39;Control&#39;</span>).tolist()</a>
+<a class="sourceLine" id="cb15-11" title="11">csn_mat_L4_control <span class="op">=</span>  [x <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(csn_mat_L4, c_index) <span class="cf">if</span> y]</a>
+<a class="sourceLine" id="cb15-12" title="12">a_index <span class="op">=</span> (meta_L4[<span class="st">&#39;diagnosis&#39;</span>].to_numpy() <span class="op">==</span> <span class="st">&#39;ASD&#39;</span>).tolist()</a>
+<a class="sourceLine" id="cb15-13" title="13">csn_mat_L4_asd <span class="op">=</span>  [x <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(csn_mat_L4, a_index) <span class="cf">if</span> y]</a>
+<a class="sourceLine" id="cb15-14" title="14"></a>
+<a class="sourceLine" id="cb15-15" title="15"></a>
+<a class="sourceLine" id="cb15-16" title="16">avgcsn_L4_control <span class="op">=</span> <span class="bu">sum</span>(csn_mat_L4_control).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat_L4_control)</a>
+<a class="sourceLine" id="cb15-17" title="17">avgcsn_L4_control <span class="op">=</span> <span class="op">+</span> np.transpose(avgcsn_L4_control)</a>
+<a class="sourceLine" id="cb15-18" title="18">avgcsn_L4_asd <span class="op">=</span> <span class="bu">sum</span>(csn_mat_L4_asd).toarray()<span class="op">/</span><span class="bu">len</span>(csn_mat_L4_asd)</a>
+<a class="sourceLine" id="cb15-19" title="19">avgcsn_L4_asd <span class="op">=</span> <span class="op">+</span> np.transpose(avgcsn_L4_asd)</a>
+<a class="sourceLine" id="cb15-20" title="20"></a>
+<a class="sourceLine" id="cb15-21" title="21"></a>
+<a class="sourceLine" id="cb15-22" title="22"><span class="co"># save averaged CSN file control + ASD</span></a>
+<a class="sourceLine" id="cb15-23" title="23">avgcsn_flat_L4 <span class="op">=</span> csntoflat([avgcsn_L4_control, avgcsn_L4_asd])</a>
+<a class="sourceLine" id="cb15-24" title="24">np.savetxt(<span class="st">&#39;avgcsn_asd_data_&#39;</span><span class="op">+</span>ct_name<span class="op">+</span><span class="st">&#39;.txt&#39;</span>, avgcsn_flat_L4, delimiter<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb15-25" title="25"></a>
+<a class="sourceLine" id="cb15-26" title="26"></a>
+<a class="sourceLine" id="cb15-27" title="27">csn_mat_L4_new <span class="op">=</span> csn_mat_L4_control <span class="op">+</span> csn_mat_L4_asd</a>
+<a class="sourceLine" id="cb15-28" title="28">n_control <span class="op">=</span> <span class="bu">len</span>(csn_mat_L4_control)</a>
+<a class="sourceLine" id="cb15-29" title="29"></a>
+<a class="sourceLine" id="cb15-30" title="30">pval <span class="op">=</span> locCSN.DISTp(csn_mat_L4_new, n_control)</a>
+<a class="sourceLine" id="cb15-31" title="31">pval</a>
+<a class="sourceLine" id="cb15-32" title="32"><span class="co"># 0.039</span></a></code></pre></div>
+<h3 id="sled-comparison">sLED comparison</h3>
+<p>sLED is a R package for two-sample test for high-dimensional covariance matrices. Details are in this <a href="https://github.com/lingxuez/sLED">GitHub repo</a>. Let’s get started with installation:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"devtools"</span><span class='op'>)</span> <span class='co'>## if not installed</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://devtools.r-lib.org/'>"devtools"</a></span><span class='op'>)</span>
+<span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"lingxuez/sLED"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Apply sLED to correlation matrix of L4 cell group.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>sLED</span><span class='op'>)</span>
+<span class='co'># read in gene expression and metadata files</span>
+<span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>setwd</a></span><span class='op'>(</span><span class='st'>'yourpathtodata/Velme/'</span><span class='op'>)</span>
+<span class='va'>log.mc.cpm.L</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>'Velme_log_mc_cpm_L.txt'</span><span class='op'>)</span>
+<span class='va'>meta.mc.L</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>'Velme_meta_mc_L.txt'</span><span class='op'>)</span>
+
+<span class='co'># Let's take L4 as an example</span>
+<span class='va'>ct.name</span> <span class='op'>=</span> <span class='st'>'L4'</span>
+<span class='va'>meta.mc.diag</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>meta.mc.L</span><span class='op'>$</span><span class='va'>diagnosis</span><span class='op'>[</span><span class='va'>meta.mc.L</span><span class='op'>$</span><span class='va'>cluster</span> <span class='op'>==</span> <span class='va'>ct.name</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>'ASD'</span><span class='op'>)</span>
+<span class='va'>log.mc.L</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.matrix.html'>data.matrix</a></span><span class='op'>(</span><span class='va'>log.mc.cpm.L</span><span class='op'>[</span>, <span class='va'>meta.mc.L</span><span class='op'>$</span><span class='va'>cluster</span> <span class='op'>==</span> <span class='va'>ct.name</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>log.mc.L</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span>
+<span class='co'>#          mc_L_4   mc_L_7  mc_L_10  mc_L_25  mc_L_28</span>
+<span class='co'>#SAMD11  0.000000 0.000000 0.000000 0.000000 0.000000</span>
+<span class='co'>#SKI     5.797950 4.036630 5.298243 0.000000 3.842033</span>
+<span class='co'>#SLC45A1 0.000000 2.814837 0.000000 0.000000 2.269254</span>
+<span class='co'>#RERE    6.489579 5.775307 5.702040 5.917348 5.959781</span>
+<span class='co'>#CA6     0.000000 1.965827 0.000000 0.000000 1.894637</span>
+
+<span class='co'># rownames of expression are ASD genes</span>
+<span class='va'>asd.genes</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>log.mc.L</span><span class='op'>)</span>
+
+<span class='va'>result.cor</span> <span class='op'>=</span> <span class='fu'>sLED</span><span class='op'>(</span>X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>log.mc.L</span><span class='op'>[</span>, <span class='va'>meta.mc.diag</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>]</span><span class='op'>)</span>, Y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>log.mc.L</span><span class='op'>[</span>, <span class='va'>meta.mc.diag</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>, sumabs.seq <span class='op'>=</span> <span class='fl'>0.2</span>, npermute <span class='op'>=</span> <span class='fl'>100</span>, seeds <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>)</span>, adj.beta <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+<span class='co'># 100 permutation started:</span>
+<span class='co'># 10 ,20 ,30 ,40 ,50 ,60 ,70 ,80 ,90 ,100 ,permutations finished.</span>
+
+<span class='va'>result.cor</span><span class='op'>$</span><span class='va'>pVal</span>
+<span class='co'># [1] 0.8</span>
+</code></pre>
+</div>
+</div>
+<p>Although sLED is designed for covariance matrices, the idea of comparing differences matrix can be applied to co-expression measured by CSN. I have modified sLED <a href="https://github.com/xuranw/locCSN/blob/main/Rcode/sLEDmodify.R">code</a> for CSN adjancency matrices.</p>
+<p>The flatten csn test statistics can be found with this <a href="https://www.dropbox.com/s/oawyxngaxri1tux/csn_asd_loc_flat_L4.tar.gz?dl=0">link</a>. Please download and extract file <code>csn_asd_loc_flat_L4.txt</code> before excuting codes below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># load functions of sLED for CSNs</span>
+<span class='kw'><a href='https://rdrr.io/r/base/source.html'>source</a></span><span class='op'>(</span><span class='st'>'https://raw.githubusercontent.com/xuranw/locCSN/main/Rcode/sLEDmodify.R'</span><span class='op'>)</span>
+
+<span class='va'>csn.flat.temp</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>'csn_asd_loc_flat_'</span>,<span class='va'>ct_name</span>, <span class='st'>'.txt'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>csn.flat.temp</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.matrix.html'>data.matrix</a></span><span class='op'>(</span><span class='va'>csn.flat.temp</span><span class='op'>)</span>
+<span class='va'>csn.t.flat</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>csn.flat.temp</span> <span class='op'>&gt;</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span><span class='op'>(</span><span class='fl'>0.99</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>0</span> <span class='co'>#Threshold at alpha = 0.01</span>
+<span class='va'>result.csn</span> <span class='op'>=</span> <span class='fu'>sLED.csn</span><span class='op'>(</span>X <span class='op'>=</span> <span class='va'>csn.t.flat</span><span class='op'>[</span>, <span class='va'>meta.mc.diag</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>]</span>, Y <span class='op'>=</span> <span class='va'>csn.t.flat</span><span class='op'>[</span>, <span class='va'>meta.mc.diag</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>]</span>, sumabs.seq <span class='op'>=</span> <span class='fl'>0.2</span>, npermute <span class='op'>=</span> <span class='fl'>100</span>, seeds <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>result.csn</span><span class='op'>$</span><span class='va'>pVal</span>
+<span class='co'># [1] 0</span>
+</code></pre>
+</div>
+</div>
+<p>sLED-CSN produces a significant p-value for comparison of ASD and Control groups for L4 cell group.</p>
+<h3 id="leverage-genes-and-dn-genes">leverage genes and DN genes</h3>
+<p>We can also identify the leverage genes, which are the non-zero entries of the sparse leading eigenvector. The differential network genes are the ones that explain 90% of the variability among the leverage genes. To get leverage genes and DN genes use the code below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Leverage genes </span>
+<span class='va'>lev.L4</span> <span class='op'>=</span> <span class='va'>asd.genes</span><span class='op'>[</span><span class='va'>result.csn</span><span class='op'>$</span><span class='va'>leverage</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>]</span>
+
+<span class='co'># DN genes (top 90%)</span>
+<span class='va'>num.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span><span class='va'>result.csn</span><span class='op'>$</span><span class='va'>leverage</span>, decreasing <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>0.9</span><span class='op'>)</span><span class='op'>)</span>  <span class='co'># 27</span>
+<span class='va'>dn.L4.id</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='va'>result.csn</span><span class='op'>$</span><span class='va'>leverage</span> <span class='op'>&gt;=</span> <span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span><span class='va'>result.csn</span><span class='op'>$</span><span class='va'>leverage</span>, decreasing <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>[</span><span class='va'>num.dn</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>dn.L4</span> <span class='op'>=</span> <span class='va'>asd.genes</span><span class='op'>[</span><span class='va'>dn.L4.id</span><span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<p>We also plot the heatmap of averaged CSN for DN genes plus 30 random selected genes. DN genes are boxed in the heatmaps.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot.gene.id</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>dn.L4.id</span>, <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sets.html'>setdiff</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>942</span>, <span class='va'>dn.L4</span>, <span class='va'>id</span><span class='op'>)</span>, <span class='fl'>30</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># DN genes + 30 random selected genes</span>
+
+<span class='va'>avgcsn.flat</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>'avgcsn_asd_data_'</span>, <span class='va'>ct.name</span>, <span class='st'>'.txt'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>avg.csn.ctl</span> <span class='op'>=</span> <span class='fu'>flat.to.matrix</span><span class='op'>(</span><span class='va'>avgcsn_temp</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>avg.csn.asd</span> <span class='op'>=</span> <span class='fu'>flat.to.matrix</span><span class='op'>(</span><span class='va'>avgcsn_temp</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>reshape2</span><span class='op'>)</span>
+<span class='va'>m.data.avgcsn.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='fu'>melt</span><span class='op'>(</span><span class='va'>avg.csn.ctl</span><span class='op'>[</span><span class='va'>plot.gene.id</span>, <span class='va'>plot.gene.id</span><span class='op'>]</span><span class='op'>)</span>, 
+                         <span class='fu'>melt</span><span class='op'>(</span><span class='va'>avg.csn.asd</span><span class='op'>[</span><span class='va'>plot.gene.id</span>, <span class='va'>plot.gene.id</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+                         
+<span class='va'>temp.dn</span> <span class='op'>=</span> <span class='va'>dn.L4.id</span>
+<span class='va'>temp.non.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sets.html'>setdiff</a></span><span class='op'>(</span><span class='va'>plot.gene.id</span>, <span class='va'>dn.L4.id</span><span class='op'>)</span>
+<span class='co'># A simple clustering of genes for visualization</span>
+<span class='va'>dist.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>avg.csn.ctl</span><span class='op'>[</span><span class='va'>temp.dn</span>, <span class='va'>temp.dn</span><span class='op'>]</span>, <span class='va'>avg.csn.asd</span><span class='op'>[</span><span class='va'>temp.dn</span>, <span class='va'>temp.dn</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>;
+<span class='va'>dist.non.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>avg.csn.ctl</span><span class='op'>[</span><span class='va'>temp.non.dn</span>, <span class='va'>temp.non.dn</span><span class='op'>]</span>, <span class='va'>avg.csn.asd</span><span class='op'>[</span><span class='va'>temp.non.dn</span>, <span class='va'>temp.non.dn</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>hclust.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span><span class='op'>(</span><span class='va'>dist.dn</span><span class='op'>)</span>; <span class='va'>hclust.non.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span><span class='op'>(</span><span class='va'>dist.non.dn</span><span class='op'>)</span>
+<span class='va'>match.temp.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span><span class='op'>(</span><span class='va'>temp.dn</span>, <span class='va'>plot.gene.id</span><span class='op'>)</span>; 
+<span class='va'>match.temp.non.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span><span class='op'>(</span><span class='va'>temp.non.dn</span>, <span class='va'>plot.gene.id</span><span class='op'>)</span>;
+<span class='va'>order.temp</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>match.temp.dn</span><span class='op'>[</span><span class='va'>hclust.dn</span><span class='op'>$</span><span class='va'>order</span><span class='op'>]</span>, <span class='va'>match.temp.non.dn</span><span class='op'>[</span><span class='va'>hclust.non.dn</span><span class='op'>$</span><span class='va'>order</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='va'>n.dn.withnull</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>plot.gene.id</span><span class='op'>)</span>; <span class='va'>n.dn</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>dn.L4.id</span><span class='op'>)</span>
+<span class='va'>m.data.avgcsn.dn</span><span class='op'>$</span><span class='va'>X1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>m.data.avgcsn.dn</span><span class='op'>$</span><span class='va'>X1</span>, levels <span class='op'>=</span> <span class='va'>order.temp</span><span class='op'>)</span>
+<span class='va'>m.data.avgcsn.dn</span><span class='op'>$</span><span class='va'>X2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>m.data.avgcsn.dn</span><span class='op'>$</span><span class='va'>X2</span>, levels <span class='op'>=</span> <span class='va'>order.temp</span><span class='op'>)</span>
+ 
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>m.data.avgcsn.dn</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'gene.x'</span>, <span class='st'>'gene.y'</span>, <span class='st'>'avgcsn'</span><span class='op'>)</span>
+<span class='va'>m.data.avgcsn.dn</span><span class='op'>$</span><span class='va'>group</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Control'</span>, <span class='st'>'ASD'</span><span class='op'>)</span>, each <span class='op'>=</span> <span class='va'>n.dn.withnull</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Control'</span>, <span class='st'>'ASD'</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>data.rec</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='va'>n.dn</span><span class='op'>+</span><span class='fl'>0.5</span>, <span class='va'>n.dn</span><span class='op'>+</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span><span class='op'>)</span>, x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='va'>n.dn</span><span class='op'>+</span><span class='fl'>0.5</span>, <span class='va'>n.dn</span><span class='op'>+</span><span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>p1</span> <span class='op'>=</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>m.data.avgcsn.dn</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>gene.x</span>, <span class='va'>gene.y</span>, fill <span class='op'>=</span> <span class='va'>avgcsn</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_tile</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>geom_polygon</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>data.rec</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>x</span>, y<span class='op'>=</span><span class='va'>y</span><span class='op'>)</span>, colour<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>group</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_fill_distiller</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'Greens'</span>, direction <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, axis.text.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, 
+          axis.ticks.x <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, axis.ticks.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>ggtitle</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>'L4: '</span>, <span class='va'>n.dn</span>, <span class='st'>' DN genes'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme</span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_colorbar</span><span class='op'>(</span>barwidth <span class='op'>=</span> <span class='fl'>0.5</span>, barheight <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+    
+<span class='va'>diff.avg.csn.dn</span> <span class='op'>=</span> <span class='va'>avg.csn.asd</span><span class='op'>[</span><span class='va'>plot.gene.id</span>, <span class='va'>plot.gene.id</span><span class='op'>]</span> <span class='op'>-</span> <span class='va'>avg.csn.ctl</span><span class='op'>[</span><span class='va'>plot.gene.id</span>, <span class='va'>plot.gene.id</span><span class='op'>]</span>
+<span class='va'>m.diff.avg.csn</span> <span class='op'>=</span> <span class='fu'>melt</span><span class='op'>(</span><span class='va'>diff.avg.csn.dn</span><span class='op'>)</span>
+<span class='va'>m.diff.avg.csn</span><span class='op'>$</span><span class='va'>X1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>m.diff.avg.csn</span><span class='op'>$</span><span class='va'>X1</span>, levels <span class='op'>=</span> <span class='va'>order.temp</span><span class='op'>)</span>
+<span class='va'>m.diff.avg.csn</span><span class='op'>$</span><span class='va'>X2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>m.diff.avg.csn</span><span class='op'>$</span><span class='va'>X2</span>, levels <span class='op'>=</span> <span class='va'>order.temp</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>m.diff.avg.csn</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'gene.x'</span>, <span class='st'>'gene.y'</span>, <span class='st'>'avgcsn'</span><span class='op'>)</span>
+<span class='va'>lim.max</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='fl'>0.7</span>, <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='va'>m.diff.avg.csn</span><span class='op'>$</span><span class='va'>avgcsn</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>p2</span> <span class='op'>=</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>m.diff.avg.csn</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>gene.x</span>, <span class='va'>gene.y</span>, fill <span class='op'>=</span> <span class='va'>avgcsn</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_tile</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>geom_polygon</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>data.rec</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>x</span>, y<span class='op'>=</span><span class='va'>y</span><span class='op'>)</span>, colour<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='cn'>NA</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>coord_fixed</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_fill_distiller</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'RdBu'</span>, direction <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>, limit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>lim.max</span>, <span class='va'>lim.max</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, axis.text.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, 
+          axis.ticks.x <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, axis.ticks.y <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>, 
+          axis.title <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>'Difference'</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>labs</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='va'>Delta</span>, <span class='st'>'avgcsn'</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>guides</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'>guide_colorbar</span><span class='op'>(</span>barwidth <span class='op'>=</span> <span class='fl'>0.5</span>, barheight <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>cowplot</span><span class='op'>)</span>
+<span class='va'>p_comb</span> <span class='op'>=</span> <span class='fu'>plot_grid</span><span class='op'>(</span><span class='va'>p1</span>, <span class='va'>p2</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, rel_widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.6</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>p_comb</span>
+</code></pre>
+</div>
+</div>
+<figure>
+<img src="Figures/L4_top90genes_eg.png" alt="velme_DN_heat" /><figcaption>velme_DN_heat</figcaption>
+</figure>
+<h1 id="trajectory-analysis-using-brain-cortex-atlas-dataset">Trajectory analysis using Brain Cortex Atlas Dataset</h1>
+<p>For the Brain Cortex Altas Data (Polioudakis et al. 2019), I will only show the downstream analysis after obtaining the averaged CSN for 7 pseudotime points and how we get the Sankey plot for D-curve. The averaged CSN are stored in this <a href="https://github.com/xuranw/locCSN/tree/main/DataStore/AtlasND">folder</a>. PisCES (Liu et al. 2018) is a Matlab package in this <a href="https://github.com/letitiaLiu/PisCES">gitHub repo</a></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb16-1" title="1">load(<span class="st">&#39;avgcsn_Dcurve_list.mat&#39;</span>)  <span class="co">%avgcsn_Dcurve_list </span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="co">% this is a list of averaged CSN for 8 pseudotime points: P, IP, Ex</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4">T = <span class="fl">8</span>;</a>
+<a class="sourceLine" id="cb16-5" title="5">N = size(avgcsn_Dcurve_list{<span class="fl">1</span>}, <span class="fl">1</span>);</a>
+<a class="sourceLine" id="cb16-6" title="6">net_temp = csnto3dmat(avgcsn_Dcurve_list);</a>
+<a class="sourceLine" id="cb16-7" title="7">Z = PisCES(net_temp, <span class="st">&#39;T&#39;</span>, <span class="fl">0.05</span>*ones(T, <span class="fl">2</span>));</a>
+<a class="sourceLine" id="cb16-8" title="8">K = max(max(Z));</a>
+<a class="sourceLine" id="cb16-9" title="9">A_rec = avgcsn_Dcurve_list;</a>
+<a class="sourceLine" id="cb16-10" title="10">param.min_flow_size = N/K^<span class="fl">2</span>;</a>
+<a class="sourceLine" id="cb16-11" title="11">param.frac_min_flow_size = <span class="fl">0.15</span>;</a>
+<a class="sourceLine" id="cb16-12" title="12">[newZ] = layout_timeline(A_rec, Z&#39;, param);</a></code></pre></div>
+<p>This section is not necessary. We manually reordered the gene community so that the dense gene community is the first gene community.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb17-1" title="1"><span class="co">% Manually change gene community order</span></a>
+<a class="sourceLine" id="cb17-2" title="2">for i = <span class="fl">1</span>:<span class="fl">8</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    index = find(newZ(:, i) == <span class="fl">3</span>);</a>
+<a class="sourceLine" id="cb17-4" title="4">    newZ(newZ(:, i) == <span class="fl">2</span>, i) = <span class="fl">3</span>;</a>
+<a class="sourceLine" id="cb17-5" title="5">    newZ(newZ(:, i) == <span class="fl">1</span>, i) = <span class="fl">2</span>;</a>
+<a class="sourceLine" id="cb17-6" title="6">    newZ(index, i) = <span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb17-7" title="7">end</a></code></pre></div>
+<p>Create sankey plot.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb18-1" title="1">[flow_rec, cluster_rec] = create_sankey_tables(newZ, A_rec);</a>
+<a class="sourceLine" id="cb18-2" title="2">param.add_class_labels = <span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb18-3" title="3">param.draw_whole_timeline = <span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb18-4" title="4">param.draw_paired_plots = <span class="fl">0</span>;</a>
+<a class="sourceLine" id="cb18-5" title="5">param.which_paired_plots = <span class="fl">1</span>:T-<span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb18-6" title="6">param.draw_whole_timeline_with_heatmap = <span class="fl">0</span>;</a>
+<a class="sourceLine" id="cb18-7" title="7">param.draw_all_plots = <span class="fl">0</span>;</a>
+<a class="sourceLine" id="cb18-8" title="8">[paired_param] = make_timeline_and_paired_plots(newZ, A_rec, flow_rec,cluster_rec, param);</a></code></pre></div>
+<figure>
+<img src="Figures/sankey_Dcurve.png" alt="sankey_plot" /><figcaption>sankey_plot</figcaption>
+</figure>
+<h1 id="references">References</h1>
+<ul>
+<li>Dai, Hao, et al. “Cell-specific network constructed by single-cell RNA sequencing data.” Nucleic acids research 47.11 (2019).</li>
+<li>Chu, Li-Fang, et al. “Single-cell RNA-seq reveals novel regulators of human embryonic stem cell differentiation to definitive endoderm.” Genome biology 17.1 (2016).</li>
+<li>Velmeshev, Dmitry, et al. “Single-cell genomics identifies cell type–specific molecular changes in autism.” Science 364.6441 (2019).</li>
+<li>Baran, Yael, et al. “MetaCell: analysis of single-cell RNA-seq data using K-nn graph partitions.” Genome biology 20.1 (2019).</li>
+<li>Polioudakis, Damon, et al. “A single cell transcriptomic atlas of human neocortical development during mid-gestation.” Neuron 103.5 (2019).</li>
+<li>Zhu, Lingxue, et al. “Testing high-dimensional covariance matrices, with application to detecting schizophrenia risk genes.” The annals of applied statistics 11.3 (2017).</li>
+<li>Liu, Fuchen, et al. “Global spectral clustering in dynamic networks.” Proceedings of the National Academy of Sciences 115.5 (2018).</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
