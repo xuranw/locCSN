@@ -1,0 +1,31 @@
+---
+title: "locCSN"
+description: |
+  Construction local cell specific networks from single cell data
+author:
+  - name: Xuran Wang
+    url: https://xuranw.github.io/personalwebsite/
+    affiliation: Carnegie Mellon University, Department of Statistics and Data Science
+
+site: distill::distill_website
+---
+
+`locCSN` is a package that calculates gene networks for each cell from single-cell datasets.
+![pipeline](./Figures/Workflow_new.png)
+
+How to cite `locCSN`
+-------------------
+This work has not published yet, please see [bioRxiv](https://www.biorxiv.org/content/10.1101/2021.02.13.431104v1).
+
+
+Installation
+------------
+
+```python
+pip install locCSN
+```
+Source code are stored in [Python Folder](https://github.com/xuranw/locCSN/tree/main/Python). 
+
+More Information
+-----------------
+Please see [Tutorial](http://xuranw.github.io/locCSN/vignettes.html).

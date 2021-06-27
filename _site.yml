@@ -1,0 +1,19 @@
+name: "distill"
+title: "locCSN"
+url: http://xuramw.github.io/locCSN
+theme: theme.css
+description: |
+  locCSN
+output_dir: "_site"
+navbar:
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Tutorial"
+      href: vignettes.html
+  right:
+    - icon: fa-github
+      href: https://github.com/xuranw/locCSN
+output:
+  distill::distill_article
