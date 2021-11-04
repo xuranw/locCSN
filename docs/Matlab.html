@@ -2430,7 +2430,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html" class="title">locCSN</a>
 <a href="index.html">Home</a>
 <a href="vignettes.html">Tutorial</a>
-<a href="Matlab.html">Matlab</a>
 </div>
 <div class="nav-right">
 <a href="https://github.com/xuranw/locCSN">
@@ -2529,73 +2528,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>In this example, we reproduce the results of Chutype dataset in paper.</p>
 <h2 id="load-datasets">Load Datasets</h2>
 <p>There are 51 marker genes and 1018 cells from 7 cell types. The gene expression are stored in <a href="https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/logChumarker.txt">logChumaker.txt</a> and corresponding cell types in <a href="https://github.com/xuranw/locCSN/blob/main/DataStore/Chutype/chutypectname.txt">chutypectname.txt</a>. Cell types are H1, H9, DEC, EC, HFF, NPC and TF. In our paper, we focus on cell type DEC and NPC.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># Import packages</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="im">import</span> locCSN</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="im">import</span> os</a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="im">import</span> scanpy <span class="im">as</span> sc</a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb1-1" title="1"><span class="co">% Set path to data</span></a>
+<a class="sourceLine" id="cb1-2" title="2">cd yourpath\Chutype</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">% read in Chutype dataset</span></a>
+<a class="sourceLine" id="cb1-5" title="5">log_marker = readtable(<span class="st">&#39;logChumarker.txt&#39;</span>);</a>
+<a class="sourceLine" id="cb1-6" title="6">gene_marker = log_marker.Var1;</a>
+<a class="sourceLine" id="cb1-7" title="7">log_marker = log_marker{:, <span class="fl">2</span>:end};</a>
 <a class="sourceLine" id="cb1-8" title="8"></a>
-<a class="sourceLine" id="cb1-9" title="9"></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co"># Set path to data</span></a>
-<a class="sourceLine" id="cb1-11" title="11">os.chdir(<span class="st">&#39;yourpathtodata/Chutype/&#39;</span>)</a>
-<a class="sourceLine" id="cb1-12" title="12"></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="co"># read in Chutype dataset</span></a>
-<a class="sourceLine" id="cb1-14" title="14">data <span class="op">=</span> sc.read_text(<span class="st">&#39;logChumarker.txt&#39;</span>)</a>
-<a class="sourceLine" id="cb1-15" title="15">data.shape</a>
-<a class="sourceLine" id="cb1-16" title="16">data <span class="op">=</span> data.transpose() <span class="co"># 1018 cells * 51 genes</span></a>
-<a class="sourceLine" id="cb1-17" title="17"></a>
-<a class="sourceLine" id="cb1-18" title="18">cell_type <span class="op">=</span> pd.read_csv(<span class="st">&#39;chutypectname.txt&#39;</span>, sep <span class="op">=</span> <span class="st">&#39; &#39;</span>)</a>
-<a class="sourceLine" id="cb1-19" title="19">data.obs <span class="op">=</span> cell_type   <span class="co"># The observation are labeled with cell types.</span></a>
-<a class="sourceLine" id="cb1-20" title="20"></a>
-<a class="sourceLine" id="cb1-21" title="21"><span class="co"># Plot the Heatmap of gene expression</span></a>
-<a class="sourceLine" id="cb1-22" title="22">sc.pl.heatmap(data, data.var.index, groupby<span class="op">=</span> <span class="st">&quot;cell_type&quot;</span>, dendrogram <span class="op">=</span> <span class="va">False</span>, swap_axes <span class="op">=</span> <span class="va">True</span>, </a>
-<a class="sourceLine" id="cb1-23" title="23">              show_gene_labels<span class="op">=</span> <span class="va">True</span>, cmap<span class="op">=</span><span class="st">&#39;Wistia&#39;</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb1-9" title="9">cell_type = readtable(<span class="st">&#39;chutypect.txt&#39;</span>);</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"># Plot the Heatmap of gene expression</a>
+<a class="sourceLine" id="cb1-13" title="13">imagesc(log_marker)</a></code></pre></div>
 <figure>
-<img src="Figures/heatmapheat_exprs.png" alt="heatmap" /><figcaption>heatmap</figcaption>
+<img src="./Figures/heatmapheat_exprs_matlab.png" alt="heatmap" /><figcaption>heatmap</figcaption>
 </figure>
 <h2 id="calculate-pearsons-correlation">Calculate Pearson’s Correlation</h2>
 <p>After loading gene expression matrix and cell types, we first show the absolute Pearson’s correlation for DEC and NPC cells.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">data_dec <span class="op">=</span> data[data.obs.cell_type <span class="op">==</span> <span class="st">&quot;DEC&quot;</span>, ]</a>
-<a class="sourceLine" id="cb2-2" title="2">X_dec <span class="op">=</span> data_dec.X.transpose()</a>
-<a class="sourceLine" id="cb2-3" title="3">data_npc <span class="op">=</span> data[data.obs.cell_type <span class="op">==</span> <span class="st">&#39;NPC&#39;</span>, ]</a>
-<a class="sourceLine" id="cb2-4" title="4">X_npc <span class="op">=</span> data_npc.X.transpose()</a>
-<a class="sourceLine" id="cb2-5" title="5"></a>
-<a class="sourceLine" id="cb2-6" title="6">corr_dec <span class="op">=</span> np.corrcoef(X_dec)</a>
-<a class="sourceLine" id="cb2-7" title="7">corr_npc <span class="op">=</span> np.corrcoef(X_npc)</a>
-<a class="sourceLine" id="cb2-8" title="8"></a>
-<a class="sourceLine" id="cb2-9" title="9"></a>
-<a class="sourceLine" id="cb2-10" title="10">np.fill_diagonal(corr_dec, <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb2-11" title="11">np.fill_diagonal(corr_npc, <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb2-12" title="12"></a>
-<a class="sourceLine" id="cb2-13" title="13"></a>
-<a class="sourceLine" id="cb2-14" title="14">plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb2-15" title="15">plt.imshow(<span class="bu">abs</span>(corr_dec), vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.7</span>, cmap<span class="op">=</span><span class="st">&#39;RdPu&#39;</span>)</a>
-<a class="sourceLine" id="cb2-16" title="16">plt.title(<span class="st">&#39;DEC&#39;</span>, fontweight <span class="op">=</span><span class="st">&quot;bold&quot;</span>)</a>
-<a class="sourceLine" id="cb2-17" title="17">plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb2-18" title="18">plt.imshow(<span class="bu">abs</span>(corr_npc), vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.7</span>, cmap<span class="op">=</span><span class="st">&#39;RdPu&#39;</span>)</a>
-<a class="sourceLine" id="cb2-19" title="19">plt.title(<span class="st">&quot;NPC&quot;</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a>
-<a class="sourceLine" id="cb2-20" title="20">plt.suptitle(<span class="st">&quot;Absolute Pearson`s Correlation&quot;</span>, fontsize <span class="op">=</span> <span class="dv">14</span>, fontweight <span class="op">=</span> <span class="st">&quot;bold&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb2-1" title="1">log_dec = log_marker(:, cell_type == <span class="st">&#39;DEC&#39;</span>); log_npc = log_marker(:, cell_type == <span class="st">&#39;NPC&#39;</span>);</a>
+<a class="sourceLine" id="cb2-2" title="2">group_id = [ones(<span class="fl">1</span>, sum(cell_type == <span class="st">&#39;DEC&#39;</span>)), <span class="fl">2</span>*ones(<span class="fl">1</span>, sum(cell_type == <span class="st">&#39;NPC&#39;</span>))];</a></code></pre></div>
 <p>The heatmaps for absolute Pearson`s correlations is</p>
 <figure>
 <img src="Figures/Abs_cor_2ct.png" alt="abs_corr" /><figcaption>abs_corr</figcaption>
 </figure>
 <h2 id="calculate-csn-test-statistics">Calculate CSN test statistics</h2>
 <p>Now we calculate the CSN test statistics using function <code>csn</code> for cell type DEC and NPC.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="im">import</span> time</a>
-<a class="sourceLine" id="cb3-2" title="2">start <span class="op">=</span> time.time()</a>
-<a class="sourceLine" id="cb3-3" title="3">csn_dec <span class="op">=</span> locCSN.csn(X_dec, dev <span class="op">=</span> <span class="va">True</span>)</a>
-<a class="sourceLine" id="cb3-4" title="4">end <span class="op">=</span> time.time()</a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="bu">print</span>(end <span class="op">-</span> start) </a>
-<a class="sourceLine" id="cb3-6" title="6">start <span class="op">=</span> time.time()</a>
-<a class="sourceLine" id="cb3-7" title="7">csn_npc <span class="op">=</span> locCSN.csn(X_npc, dev <span class="op">=</span> <span class="va">True</span>)</a>
-<a class="sourceLine" id="cb3-8" title="8">end <span class="op">=</span> time.time()</a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="bu">print</span>(end <span class="op">-</span> start) </a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="co">#1275 pairs need calculation</span></a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="co">#60.3697772026062</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co">#903 pairs need calculation</span></a>
-<a class="sourceLine" id="cb3-13" title="13"><span class="co">#35.72847938537598</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb3-1" title="1">csn_dec = csn_origin_n(log_dec, <span class="fl">0.1</span>, <span class="fl">1</span>, <span class="fl">1</span>, true);</a>
+<a class="sourceLine" id="cb3-2" title="2">csn_npc = csn_origin_n(log_npc, <span class="fl">0.1</span>, <span class="fl">1</span>, <span class="fl">1</span>, true);</a></code></pre></div>
 <p>Now we show what function <code>csn</code> produces. For a specific cell, we compute each pair of genes and store test statistics in an upper diagnol matrix.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">type</span>(csn_dec) </a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="co"># list</span></a>
