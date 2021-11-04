@@ -46,8 +46,8 @@ d-byline {
 
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
-  --heading-size:    18px;
-  --contents-size:   13px;
+  --heading-size:    20px;
+  --contents-size:   15px;
 }
 
 /*-- ARTICLE APPENDIX --*/
@@ -76,20 +76,34 @@ d-appendix {
   --bkgd-color:       #0F2E3D;
 }
 
+
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
 
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* 2. Make nav sticky */
+main > nav {
+  position: absolute;
+  top: 2rem;
+  align-self: auto;
+}
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  position: absolute; /* Do not go with content */
   z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  /*top: 0; /* Stay at the top */
+  /*bottom: 0; */
   left: 0;
   background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  overflow-y: auto;
 }
 
 /* The navigation menu links */
@@ -106,11 +120,14 @@ d-appendix {
   color: #137a63;
 }
 
-/* Style page content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+
+
+/* 3. ScrollSpy active styles (see JS tab for activation) */
+.section-nav.active > a {
+  color: #333;
+  font-weight: 500;
 }
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
