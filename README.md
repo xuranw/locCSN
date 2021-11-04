@@ -510,6 +510,19 @@ param.draw_all_plots = 0;
 ```
 ![sankey_plot](./Figures/sankey_Dcurve.png)
 
+## Preprocess Discussions
+
+we found that CSN performed better when applied to metacells, which reduces the number of cells by at least an order of magnitude. It is often natural to reduce the genes under investigation by CSN to a meaningful subset, such as genes previously implicated in genetic risk, genes mapped to critical pathways, or highly variable genes. Restricting the investigation to a subset of genes greatly reduces the computational complexity of CSN analysis, but more importantly, it
+can reveal more scientifically interpretable results. For example, we focus on 51 developmental genes that
+are suggested by Chu et al. The choice of cell type is also important for locCSN analysis. For mature
+cells, it is natural to cluster them by cell types. It is only for cells in development that a trajectory is the
+better choice. For instance, fetal brain cell types do not plot in distinct clusters in UMAP and they are more
+naturally ordered by psuedotime. A user would need to make this decision but it is not a difficult one for
+a scientist to make in context of their study. To avoid batch effect, we create metacells and calculate CSN
+batch by batch, which reduced the effects from first moment shifts of the data.
+
+It is feasible to extend locCSN to incorporate patients's clinical variables such as age, gender, disease status. We compute locCSN using cells/metacells from different conditions and subjects simultaneously to avoid bias. The detection of the networks differences between conditions will be performed after locCSN calculation.
+
 
 ## References
 * Dai, Hao, et al. "Cell-specific network constructed by single-cell RNA sequencing data." Nucleic acids research 47.11 (2019).
