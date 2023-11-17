@@ -6,7 +6,7 @@ Local Cell-Specific Network (locCSN)
 
 How to cite `locCSN`
 -------------------
-This work has not published yet, please see [bioRxiv](https://www.biorxiv.org/content/10.1101/2021.02.13.431104v1).
+This work has been published in [PNAS](https://www.pnas.org/doi/10.1073/pnas.2113178118).
 
 Installation
 -----------------
